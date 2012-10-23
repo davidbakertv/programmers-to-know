@@ -1,0 +1,120 @@
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Flatiron School - Students</title>
+  <link href="../css/style.css" type="text/css" rel="stylesheet">
+  <link href="../css/matz.css" type="text/css" rel="stylesheet">
+  <script type="text/javascript" src="../js/libs/jquery-1.4.3.min.js"></script>
+  <script type="text/javascript" src="../js/libs/modernizr-1.7.min.js"></script>
+</head>
+
+<body>
+<div id="page">
+  <header id="header">
+    <div class="center">
+      <nav id="main-menu">
+        <ul>
+          <li class="site-title"><a href="index.html">Students @ Flatiron School</a></li>
+        </ul>
+        <ul>
+          <li><a href="http://flatironschool.com">More about Our School</a></li>
+        </ul>
+      </nav>
+      <div class="clear"></div>
+    </div>
+  </header>
+
+  <section id="about" class="about-us content">
+    <div class="jrcolumns">
+          <!-- LEFT COLUMN -->
+        <div id='navcontainer'class="one_third">
+        <div class="<%= @person.last_name %>-profile-photo">
+        <img src="../images/circle-mask.png"/>
+    </div>
+        <nav id='side-nav'>
+          <ul>
+            <li class='mail'><a href="<%= @person.email %>">Mail</a></li>
+            <li class='blog'><a href="<%= @person.blog %>">Blog</a></li>
+            <li class='linkedin'><a href="<%= @person.linkedin %>">LinkedIn</a></li>
+            <li class='twitter'><a href="<%= @person.twitter %>">Twitter</a></li>
+          </ul>
+        </nav> <!-- this is the end of side nav -->
+    </div>
+          <!-- MIDDLE COLUMN -->
+          <div class="two_third">
+            <h1><%= @person.first_name %> <%= @person.last_name %></h1>
+            <h2 id='tagline'><%= @person.tagline %></h2>
+            <p><%= @person.bio %></p>
+
+<br/><br/>
+            <h2 id='tagline'>My favorite apps</h2>
+
+<div class="one_third">
+<h4><a href="#"><%= @person.fav_app_title3 %></a></h4>
+<p><%= @person.fav_app_desc3 %></p>
+</div>
+
+
+<div class="one_third">
+<h4><a href="#"><%= @person.fav_app_title2 %></a></h4>
+<p><%= @person.fav_app_desc2 %></p>
+</div>
+
+<div class="one_third last">
+<h4><a href="#"><%= @person.fav_app_title1 %></a></h4>
+<p><%= @person.fav_app_desc1 %></p>
+</div>
+
+
+          </div>
+          <!-- RIGHT COLUMN -->
+
+        <div class="clear"></div>
+
+        <h2 class="title"><span>Coder Cred</span></h2>
+
+
+
+          <div class="columns">
+          <div class="coder-cred">
+            <div class="one_fifth"><a href="<%= @person.github %>"><div class="cred-github"></div></a></div>
+            <div class="one_fifth"><a href="<%= @person.codeschool %>"><div class="cred-codeschool"></div></a></div>
+            <div class="one_fifth"><a href="<%= @person.coderwall %>"><div class="cred-coderwall"></div></a></div>
+            <div class="one_fifth"><a href="<%= @person.stackoverflow %>"><div class="cred-stackoverflow"></div></a></div>
+            <div class="one_fifth last"><a href="<%= @person.treehouse %>"><div class="cred-treehouse"></div></a></div>
+          </div>
+          </div>
+
+
+        <div class="clear"></div>
+        <h2 class="title"><span>Social Nerdery</span></h2>
+
+
+        <div class="one_half">
+
+          <%= @person.feed_1 %>
+
+        </div>
+
+        <div class="one_half last">
+
+<%= @person.feed_2 %>
+
+        </div>
+      <div class="clear"></div>
+        <h2 class="title">&nbsp;</h2>
+<section id="copyright" class="footer content">
+    <div class="center">
+      <p>&copy; 2012. All Your Rights Are Belong To Us.</p>
+      <div class="clear"></div>
+    </div>
+  </section>
+
+
+        </div>
+    </div>
+  </section>
+</body>
+</html>

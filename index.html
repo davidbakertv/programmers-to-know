@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <title>The Flatiron School - Programmers you should know</title>
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+  <link rel="stylesheet" href="css/style.css" />
+  
+  
+    <script src="js/modernizr-transitions.js"></script>
+  
+  <!-- scripts at bottom of page -->
+
+</head>
+<body class="homepage ">
+  
+  
+  <section id="content">
+    
+    
+  
+    <div id="container" class="transitions-enabled clearfix">
+  
+  <div class="item big-text col2">
+    The Flatiron School<br />
+    Programmers you should know...<br />
+    <br />
+  </div>
+    
+</div> <!-- #container -->
+
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="jquery.masonry.min.js"></script>
+<script>
+  $(function(){
+    
+    var $container = $('#container');
+    
+    $('#mini-container').masonry({
+      columnWidth: 50
+    });
+    
+    $container.masonry({
+      itemSelector: '.item',
+      columnWidth: 240,
+      isAnimated: !Modernizr.csstransitions
+    });
+    
+    // Sites using Masonry markup
+    var $sites = $('#sites'),
+        $loadingItem = $container.find('.loading');
+        
+    var ajaxError = function(){
+      $loadingItem.text('Could not load examples :(');
+    };
+    
+    // dynamically load sites using Masonry from Zootool
+
+    $.getJSON('http://zootool.com/api/users/items/?username=davidbakertv' +
+        '&apikey=989bb4b5a7523e32c566d385f0c88ca5' +
+        '&tag=potd&callback=?')
+      .error( ajaxError )
+      .success(function( data ){
+        
+        // proceed only if we have data
+        if ( !data || !data.length ) {
+          ajaxError();
+          return;
+        }
+        var items = [],
+            item, datum;
+        
+        for ( var i=0, len = data.length; i < len; i++ ) {
+          datum = data[i];
+          item = '<div class="item example"><a href="' + datum.url + '">'
+            + '<img src="' + datum.image.replace('/l.', '/m.') + '" />'
+            + '<b>' + datum.title + '</b>'
+            + '</a></div>';
+          items.push( item );
+        }
+        
+        var $items = $( items.join('') );
+        $items.imagesLoaded(function(){
+          $container
+            .masonry( 'remove', $loadingItem ).masonry()
+            .append( $items ).masonry( 'appended', $items, true );
+        });
+        
+      });
+    
+  });
+</script>
+    
+    <footer id="site-footer">
+      By David Baker at <a href="http://flatironschool.com">The Flatiron School</a>
+    </footer>
+    
+  </section> <!-- #content -->
+
+</body>
+</html>

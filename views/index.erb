@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <title>The Flatiron School - Programmers you should know</title>
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- scripts at bottom of page -->
+
+</head>
+<body class="homepage ">
+  
+<div id="loading-image">
+  <p align="center"><img src="img/loading.jpg" alt="Loading..." height="169px" width="460px" align="center"/></p>
+</div>
+
+  <section id="content">
+    
+    <div id="container" class="transitions-enabled clearfix">
+  
+    <div class="item big-text col2">
+      <br/>
+      <img src="img/flatiron.png" align="left">Flatiron School Presents<br />
+      Programmers to know<br />
+      True bosses in the game
+      <br/>
+    </div>
+
+  <% @person.programmers.each do |s| %>
+    <div class="item">
+              <a href="<%= s[4] %>">
+                <% if !s[5].nil? %>
+                <img width="200px;" src="<%= s[5] %>">
+                <% end %>
+              <h2><%= s[1] %></h2></a>
+              <p><%= s[2] %></p>
+    <div class="clear"></div>
+    </div>
+  <% end %>
+   
+
+   
+</div> <!-- #container -->
+
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="jquery.masonry.min.js"></script>
+<script type="text/javascript">
+
+var $container = $('#container');
+$container.imagesLoaded(function(){
+  $container.masonry({
+    itemSelector : '.item',
+    columnWidth : 240,
+    isAnimated: true,
+    animationOptions: {
+    duration: 150,
+    easing: 'linear',
+    queue: true
+    }  
+  });
+});
+
+
+$(window).load(function(){
+  $('#loading-image').slideUp('slow');
+  $('#container').masonry({
+  });
+});
+</script>
+
+    <footer id="site-footer">
+      By David Baker &amp; Akiva Leeder at <a href="http://flatironschool.com">The Flatiron School</a>
+    </footer>
+    
+  </section> <!-- #content -->
+
+</body>
+</html>
