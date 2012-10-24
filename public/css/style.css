@@ -36,7 +36,7 @@ html {
 
 body { 
   font: 13px 'Helvetica Neue', Arial, sans-serif;
-  background: #222 url('../img/dark_wall.png');
+  background: #222 url('../img/dark_wall.png') fixed;
   color: #222;
   line-height: 1.6em;
 }
@@ -301,7 +301,7 @@ button {
 /**** Demos ****/
 
 #container {
-  background: #222 url('../img/dark_wall.png');
+  background: #222 url('../img/dark_wall.png') fixed;
   padding: 5px;
   margin-bottom: 20px;
   border-radius: 5px;
