@@ -71,4 +71,4 @@ end
 		erb :index
 	end	
 
-# Sinatra::Application.run!
+Sinatra::Programmer.run!
