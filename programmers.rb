@@ -2,7 +2,7 @@ require 'sinatra'
 require 'sqlite3'
 require 'erb'
 
-class Programmer
+class Programmer < Sinatra::Base
 	@@attributes = %w{id 
 						name
 						tag_line
