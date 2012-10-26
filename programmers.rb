@@ -2,7 +2,15 @@ require 'sinatra'
 require 'sqlite3'
 require 'erb'
 
-class Programmer < Sinatra::Base
+class Application < Sinatra::Base
+
+	get '/' do
+		@person = Programmer.new
+		@person.return_programmers
+		erb :index
+	end	
+
+class Programmer
 	@@attributes = %w{id 
 						name
 						tag_line
@@ -51,12 +59,8 @@ class Programmer < Sinatra::Base
 		@programmers = query_db("","")
 	end
 
-	get '/' do
-		@person = Programmer.new
-		@person.return_programmers
-		erb :index
-	end	
+end
 
 end
 
-Programmer.run!
+Application.run!

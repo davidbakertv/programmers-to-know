@@ -1,2 +1,2 @@
 require './programmers'
-run Programmer.new
+run Application.new
