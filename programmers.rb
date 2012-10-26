@@ -51,24 +51,12 @@ class Programmer < Sinatra::Base
 		@programmers = query_db("","")
 	end
 
-end
-
-#sinatra routes
-
-	# get '/:name' do |name|
-	# 	@person = Student.find_name(name)
-	# 	erb :page
-	# end
-
-	# get '/find_student/:id' do |id|
-	# 	@person = Student.find_student(id)
-	# 	erb :page
-	# end
-
 	get '/' do
 		@person = Programmer.new
 		@person.return_programmers
 		erb :index
 	end	
 
-Programmer.run!
+end
+
+Sinatra::Programmer.run!
