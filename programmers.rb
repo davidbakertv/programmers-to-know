@@ -59,4 +59,4 @@ class Programmer < Sinatra::Base
 
 end
 
-Sinatra::Programmer.run!
+Programmer.run!
