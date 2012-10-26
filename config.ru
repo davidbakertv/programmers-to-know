@@ -1,2 +1,2 @@
 require './programmers'
-run programmers.new
+run Programmer.new
