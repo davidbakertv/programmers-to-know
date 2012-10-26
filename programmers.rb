@@ -71,4 +71,4 @@ end
 		erb :index
 	end	
 
-Sinatra::Programmer.run!
+Programmer.run!
